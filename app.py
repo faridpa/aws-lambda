@@ -32,4 +32,4 @@ def lambda_handler(event, context):
         return response
 
     except Exception as e:
-        raise IOError(e)    
+        raise IOError(e)
