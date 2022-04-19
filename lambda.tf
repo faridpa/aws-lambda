@@ -26,6 +26,19 @@ resource "aws_lambda_function" "test_lambda" {
   }
 }
 
+resource "aws_lambda_function_url" "test_url" {
+  function_name      = aws_lambda_function.test_lambda.function_name
+  authorization_type = "NONE"
+  cors {
+    allow_credentials = false
+    allow_origins     = ["*"]
+    allow_methods     = ["*"]
+    allow_headers     = ["date", "keep-alive"]
+    expose_headers    = ["keep-alive", "date"]
+    max_age           = 86400
+  }
+}
+
 resource "aws_iam_role" "iam_for_lambda" {
   name               = "${var.name}-lambda-role"
   assume_role_policy = <<EOF
