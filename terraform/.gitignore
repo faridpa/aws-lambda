@@ -1,0 +1,13 @@
+**/.terraform/
+.terraform.lock.hcl
+*.tfplan
+*.tfstate
+*.tfstate.*
+*.tfvars
+*.backup
+*.log
+*.bak
+.history
+.DS_Store
+crash.log
+kubeconfig_*
